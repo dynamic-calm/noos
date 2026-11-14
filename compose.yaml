@@ -11,10 +11,16 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yourusername -d yourdatabase"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
 
   localstack:
     container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
-    image: localstack/localstack
+    # Pinned: images after 4.14 require LOCALSTACK_AUTH_TOKEN (exit code 55 without it)
+    image: localstack/localstack:4.14.0
     ports:
       - "127.0.0.1:4566:4566" # LocalStack Gateway
       - "127.0.0.1:4510-4559:4510-4559" # external services port range
