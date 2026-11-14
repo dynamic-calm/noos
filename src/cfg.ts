@@ -14,7 +14,7 @@ export const AWS_PUBLIC_BUCKET_URL = getEnvVar("AWS_PUBLIC_BUCKET_URL");
 export const HOST_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : "https://www.noos.im";
+    : "https://noos.mateo.id";
 
 function getEnvVar(name: string) {
   const value = process.env[name];

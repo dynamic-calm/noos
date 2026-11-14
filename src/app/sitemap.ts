@@ -5,13 +5,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const users = await getAllUsersData();
   const urls = users!.flatMap((user) => [
     {
-      url: `https://noos.im/${user.userName}`,
+      url: `https://noos.mateo.id/${user.userName}`,
       lastModified: user.createdAt,
       changeFrequency: "yearly" as const,
       priority: 1,
     },
     ...user.samplePacks.map((samplePack) => ({
-      url: `https://noos.im/${user.userName}/${samplePack.name}`,
+      url: `https://noos.mateo.id/${user.userName}/${samplePack.name}`,
       lastModified: samplePack.createdAt,
       changeFrequency: "yearly" as const,
       priority: 0.8,
@@ -20,13 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://noos.im",
+      url: "https://noos.mateo.id",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: "https://noos.im/pricing",
+      url: "https://noos.mateo.id/pricing",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

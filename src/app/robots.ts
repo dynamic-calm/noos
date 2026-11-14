@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api", "/dashboard", "/_next", "/chunks"],
       },
     ],
-    sitemap: "https://noos.im/sitemap.xml",
+    sitemap: "https://noos.mateo.id/sitemap.xml",
   };
 }
