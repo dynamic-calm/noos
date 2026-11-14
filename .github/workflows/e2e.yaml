@@ -52,6 +52,9 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Start Services
+        run: docker compose up -d --wait --remove-orphans --quiet-pull && npm run db:push && npm run db:seed
+
       - name: Run e2e tests
         run: npx playwright test --quiet
 
